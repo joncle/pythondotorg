@@ -11,3 +11,6 @@ HAYSTACK_CONNECTIONS = {
         'INDEX_NAME': 'haystack',
     },
 }
+
+#STATIC_ROOT = '/home/jobs/pythondotorg/static'
+#STATIC_DIRFILES = '/home/jobs/pythondotorg/static'
