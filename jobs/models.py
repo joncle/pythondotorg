@@ -31,6 +31,12 @@ class JobCategory(NameSlugModel):
         verbose_name_plural = 'job categories'
         ordering = ('name', )
 
+class JobContractType(NameSlugModel):
+
+    class Meta(object):
+        verbose_name = 'job contract type'
+        verbose_name_plural = 'job contract types'
+        ordering = ('name', )
 
 class Job(ContentManageable):
     NEW_THRESHOLD = datetime.timedelta(days=30)
@@ -42,6 +48,7 @@ class Job(ContentManageable):
     company_name = models.CharField(max_length=100, blank=True, null=True)
     company_description = MarkupField(blank=True, default_markup_type=DEFAULT_MARKUP_TYPE)
     job_title = models.CharField(blank=True, null=True, max_length=100)
+    contract_type = models.ForeignKey(JobContractType, related_name='jobs', blank=True, null=True)
 
     city = models.CharField(max_length=100)
     region = models.CharField(max_length=100)
